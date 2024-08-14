@@ -5,9 +5,38 @@
 
 .box{
   border:1px solid black;
-  width:500px;  
+  width:500px;    
+  padding: 20px;
 }
 
+.win{
+  border: 3px solid green;
+}
+.lose{
+  border: 3px solid red;
+}
+.tie{
+  border: 3px solid black;
+}
+
+.img-box{
+  height: 400px;
+  display: flex;
+  align-items: center; 
+  margin: 0 auto;
+}
 .item-img{
   width:400px; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn{
+  padding:2px 8px;
+  margin: 5px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 6px;
+  cursor : pointer;
 }
