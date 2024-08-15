@@ -74,10 +74,7 @@ function App() {
         <button onClick={() => play('rock')}><img src={rockImg}></img></button>
         <button onClick={() => play('paper')}><img src={paperImg}></img></button>
       </div>     
-    </div>
-
-    
-    
+    </div>      
   );
 }
 
