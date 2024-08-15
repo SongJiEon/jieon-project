@@ -1,12 +1,34 @@
-.main{
+
+* {
+  box-sizing: border-box;
+  font-weight: 400;
+  border:none;
+}
+
+.wrap{
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.main-box{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  max-width: 800px;
+  min-width: 700px;
+  margin-top: 20px;
 }
 
 .box{
-  border:1px solid black;
-  width:500px;    
-  padding: 20px;
+  width: calc((100% / 2) - 10px);
+  height: 460px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .win{
@@ -19,24 +41,33 @@
   border: 3px solid black;
 }
 
-.img-box{
-  height: 400px;
-  display: flex;
-  align-items: center; 
-  margin: 0 auto;
-}
-.item-img{
-  width:400px; 
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.box img{
+  width: 100%;
+  max-width: 200px;
 }
 
-.btn{
-  padding:2px 8px;
-  margin: 5px;
-  background-color: white;
-  border: 2px solid black;
-  border-radius: 6px;
-  cursor : pointer;
+.choice-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.choice-btn button {
+  transition: transform 300ms ease-in-out;
+}
+
+.choice-btn button:hover {
+  transform: scale(1.1);
+}
+
+.choice-btn img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }

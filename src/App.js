@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import './App.css';
 import Box from './component/Box.js'
+import scissors from './images/realScissors.png'
+import rock from './images/realRock.png'
+import paper from './images/realPaper.png'
+import scissorsImg from './images/scissors.png'
+import rockImg from './images/rock.png'
+import paperImg from './images/paper.png'
 
 //1.박스 두개(타이틀,사진,결과값)
 //2.가위바위보 버튼
@@ -13,22 +19,21 @@ import Box from './component/Box.js'
 const choice = {
   rock:{
     name:'Rock',
-    img:'https://nationaltoday.com/wp-content/uploads/2021/08/National-Pet-Rock-Day-1200x834.jpg'
+    img: rock
   },
   scissors:{
     name:'Scissors',
-    img:'https://i5.walmartimages.com/seo/Fiskars-7-Student-Scissors-Assorted-Colors_2237a31b-2cab-481a-9cac-409d9e610349_1.fa7c509f8dfa4486ca8d97d5913ca6a3.jpeg'
+    img: scissors
   },
   paper:{
     name:'Paper',
-    img:'https://res.cloudinary.com/env-imgs/images/f_auto/shopimages/products/1200/a4_ivory_card_/.jpg'
+    img: paper
   }
 }
 function App() {
   const [userSelect,setUserSelect] = useState(null);
   const [computerSelect,setComputerSelect] = useState(null);
   const [result,setResult] = useState('')
-  // const [computerResult, setComputerResult] = useState('');
 
   const play = (userChoice) => {
     setUserSelect(choice[userChoice]);
@@ -37,7 +42,6 @@ function App() {
     setComputerSelect(computerChoice);
     
     setResult(judgement(choice[userChoice],computerChoice));
-    // setComputerResult(computerJudgement(choice[userChoice], computerChoice));
   };
 
   const judgement = (user,computer) =>{
@@ -49,18 +53,7 @@ function App() {
       return computer.name === 'Paper'?'win':'lose';
     else if (user.name=='Paper')
       return computer === 'Rock'?'win':'lose';
-  };
-
-  // const computerJudgement = (user, computer) => {
-  //   if (user.name == computer.name) {
-  //     return 'tie';
-  //   } else if (computer.name == 'Rock')
-  //     return user.name == 'Scissors' ? 'win' : 'lose';
-  //   else if (computer.name == 'Scissors')
-  //     return user.name == 'Paper' ? 'win' : 'lose';
-  //   else if (computer.name == 'Paper')
-  //     return user.name == 'Scissors' ? 'lose' : 'win';
-  // };
+  };  
 
   const randomChoice=()=>{
     let itemArray = Object.keys(choice)//객체의 키값만 뽑아서 배열로 만든다
@@ -70,17 +63,21 @@ function App() {
   }
 
   return (
-    <div>
-      <div className='main'>
+    <div className='wrap'>    
+      <h2>Let's play Rock Paper Scissors!</h2>
+      <div className='main-box'>
         <Box title='You' item={userSelect} result={result}/>
         <Box title='Computer' item={computerSelect}result={result}/>
       </div>
-      <div className='main'>
-        <button className='btn' onClick={() => play('scissors')}>가위</button>
-        <button className='btn' onClick={() => play('rock')}>바위</button>
-        <button className='btn' onClick={() => play('paper')}>보</button>
-      </div>
+      <div className='choice-btn'>
+        <button onClick={() => play('scissors')}><img src={scissorsImg}></img></button>
+        <button onClick={() => play('rock')}><img src={rockImg}></img></button>
+        <button onClick={() => play('paper')}><img src={paperImg}></img></button>
+      </div>     
     </div>
+
+    
+    
   );
 }
 
